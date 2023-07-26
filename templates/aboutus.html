@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <title>Techouse Brasil</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/outro_index" class="nav-link">Serviços</a></li>
+                <li class="nav-item"><a href="/about_nos" class="nav-link">Sobre Nós</a></li>
+                <!-- <li class="nav-item"><a href="/contato_form" class="nav-link">Contato</a></li> -->
+                <li class="nav-item"><a href="/conexao_page" class="a">Acessar Perfil</a></li> 
+            </ul>
+            <div class="hamburguer">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <div class="main">
+        <h1><span class="text-gradient">Sobre Nós.</span></h1>
+        <p class="main-description">A Techouse, fundada por <b>Eduardo</b> e seu filho <b>Guilherme</b>, é uma empresa com uma dinâmica única de parceria familiar. Combinando a experiência e sabedoria de <b>Eduardo</b> com a inovação e visão empreendedora de <b>Guilherme</b>, a Techouse traz uma abordagem abrangente e diferenciada para ajudar as empresas a alcançarem o sucesso em suas iniciativas empresariais.
+            <br><br>
+            <b>Eduardo</b>, com sua vasta experiência no setor, traz consigo um profundo conhecimento e uma perspectiva estratégica que ajudam a moldar o caminho para o sucesso. <b>Guilherme</b>, por sua vez, traz uma mentalidade inovadora e uma paixão por tecnologia, trazendo soluções modernas e criativas para os desafios empresariais.
+            <br><br>
+            Essa sinergia entre pai e filho permite à Techouse oferecer aos clientes uma combinação única de expertise e inovação, impulsionando o sucesso e o crescimento das empresas atendidas. Essa parceria sólida e dedicada é um reflexo do compromisso da Techouse em fornecer serviços de qualidade e resultados excepcionais para seus clientes.</p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Style -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); 
+
+:root {
+    --background-color: white;
+    --foreground-color-1: #6c00ff;
+    --foreground-color-2: #c400ff;
+    --text-color-1: white;
+    --text-color-2: black;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--background-color);
+}
+
+h1, h2, h3, p {
+    color: var(--text-color-2);
+}
+
+
+/* Header */
+header{
+    background-color: #fff;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centralizar horizontalmente */
+  min-height: 70px;
+  padding: 0 34px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra abaixo do navbar */
+}
+
+
+
+.nav-menu {
+    display: flex;
+  align-items: center;
+  justify-content: center; /* Centralizar horizontalmente */
+  gap: 30px;
+}
+
+.nav-menu li {
+  display: inline-block;
+  margin-right: 60px;
+}
+
+.nav-menu li:last-child {
+  margin-right: 0;
+}
+
+.nav-menu .a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);  /* Estilo dos links */
+}
+
+.nav-menu li a:hover {
+  text-decoration: none;  /* Estilo dos links ao passar o mouse */
+}
+
+.nav-link {
+    transition: 0.5s ease;
+}
+
+.nav-link:hover {
+    color: #ccc;
+}
+
+.hamburguer {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 2px;
+    margin: 5px auto;
+    background-color:var(--foreground-color-1);
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Responsividade Nav Bar */
+
+@media (max-width:768px) {
+    .hamburguer{
+        display: block;
+        margin-right: auto;
+    }
+    .hamburguer.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburguer.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburguer.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        border-radius: 0 0 20px 20px;
+        background-color: #fff;
+        text-align: center;
+        flex-direction: column;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra abaixo do navbar */
+        transition: 0.3s;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+}
+
+
+
+/* Link Style para Button */
+.a {
+    width: 100%;
+    padding: 10px 25px;
+    background-color: var(--foreground-color-1);
+    border-radius: 20px;
+    color: var(--text-color-1);
+    font-size: 1rem;
+    transition: all 300ms;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.a:hover {
+    background: var(--foreground-color-1);
+}
+
+.a:active {
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+/* Main */
+.main {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinha os elementos no início verticalmente */
+  padding: 20px;
+  margin: 100px;
+}
+
+
+.main h1 {
+  margin-bottom: 10px;
+}
+
+.main p {
+  margin-top: 10px;
+}
+
+.text-gradient {
+    background-color: var(--foreground-color-1);
+    background-image: linear-gradient(45deg, var(--foreground-color-1), var(--foreground-color-2));
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+</style>
+
+
+
+
+
+
+
+
+
+<!-- Script -->
+<script>
+    const hamburguer = document.querySelector(".hamburguer");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburguer.addEventListener("click", () => {
+        hamburguer.classList.toggle('active')
+        navMenu.classList.toggle('active')
+    })
+</script>
+</body>
+</html>

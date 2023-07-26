@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/logo.png') }}"> -->
+    <title>Techouse Brasil</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/outro_index" class="nav-link">Serviços</a></li>
+                <li class="nav-item"><a href="/about_nos" class="nav-link">Sobre Nós</a></li>
+                <li class="nav-item"><a href="/contato_form" class="nav-link">Contato</a></li>
+                <li class="nav-item"><a href="/conexao_page" class="a">Acessar Perfil</a></li> 
+            </ul>
+            <div class="hamburguer">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="contact">
+            <h3 class="contact-title">Envie uma mensagem</h3>
+            <form action="contact_send.php" method="POST">
+                <div class="form-content">
+                    <input type="text" id="nome" name="nome" required placeholder="Nome">
+                    <input type="email" id="email" name="email" required placeholder="E-mail">
+                    <textarea id="message" name="message" required placeholder="Digite sua mensagem..."></textarea>
+                    <button  id="btn-send-message">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+<!-- Style -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); 
+
+:root {
+    --background-color: white;
+    --foreground-color-1: #6c00ff;
+    --foreground-color-2: #c400ff;
+    --text-color-1: white;
+    --text-color-2: black;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--background-color);
+}
+
+h1, h2, h3, p {
+    color: var(--text-color-2);
+}
+
+
+/* Header */
+header{
+    background-color: #fff;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centralizar horizontalmente */
+  min-height: 70px;
+  padding: 0 34px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra abaixo do navbar */
+}
+
+
+.nav-menu {
+    display: flex;
+  align-items: center;
+  justify-content: center; /* Centralizar horizontalmente */
+  gap: 30px;
+}
+
+.nav-menu li {
+  display: inline-block;
+  margin-right: 60px;
+}
+
+.nav-menu li:last-child {
+  margin-right: 0;
+}
+
+.nav-menu .a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);  /* Estilo dos links */
+}
+
+.nav-menu li a:hover {
+  text-decoration: none;  /* Estilo dos links ao passar o mouse */
+}
+
+.nav-link {
+    transition: 0.5s ease;
+}
+
+.nav-link:hover {
+    color: #ccc;
+}
+
+.hamburguer {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 2px;
+    margin: 5px auto;
+    background-color:var(--foreground-color-1);
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Responsividade Nav Bar */
+
+@media (max-width:768px) {
+    .hamburguer{
+        display: block;
+        margin-right: auto;
+    }
+    .hamburguer.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburguer.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburguer.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        border-radius: 0 0 20px 20px;
+        background-color: #fff;
+        text-align: center;
+        flex-direction: column;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra abaixo do navbar */
+        transition: 0.3s;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+}
+
+button {
+    width: 100%;
+    padding: 10px 25px;
+    background-color: var(--foreground-color-1);
+    border-radius: 20px;
+    color: var(--text-color-1);
+    font-size: 1rem;
+    transition: all 300ms;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    background: var(--foreground-color-1);
+}
+
+button:active {
+    transform: scale(1.1);
+}
+
+.a {
+    width: 100%;
+    padding: 10px 25px;
+    background-color: var(--foreground-color-1);
+    border-radius: 20px;
+    color: var(--text-color-1);
+    font-size: 1rem;
+    transition: all 300ms;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.a:hover {
+    background: var(--foreground-color-1);
+}
+
+.a:active {
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+
+/* Form Contato */
+
+.content {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact {
+    width: 100%;
+    max-width: 600px;
+}
+
+.contact-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    border: 1px solid var(--foreground-color-1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+textarea {
+    resize: vertical;
+    overflow-y: auto;
+    width: 100%;
+    min-height: 150px;
+    max-height: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    border: solid 1px var(--foreground-color-1);
+}
+
+input {
+    width: 100%;
+    min-height: 50px;
+    padding: 10px;
+    border-bottom: solid 1px var(--foreground-color-1);
+}
+
+@media (max-width: 700px) {
+    .main-people-image {
+        display: none;
+    }
+
+    .people-image {
+        display: block;
+    }
+
+    .box {
+        padding: 50px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+  .service-card {
+    margin: 5px 5px;
+  }
+}
+
+
+
+
+</style>
+
+
+<!-- Script -->
+<script>
+    const hamburguer = document.querySelector(".hamburguer");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburguer.addEventListener("click", () => {
+    hamburguer.classList.toggle('active')
+    navMenu.classList.toggle('active')
+    })
+</script>   
+
+</body>
+</html>

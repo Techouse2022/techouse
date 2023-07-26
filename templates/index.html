@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/logo.png') }}"> -->
+    <title>Techouse Brasil</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/outro_index" class="nav-link">Serviços</a></li>
+                <li class="nav-item"><a href="/about_nos" class="nav-link">Sobre Nós</a></li>
+                <!-- <li class="nav-item"><a href="/contato_form" class="nav-link">Contato</a></li> -->
+                <li class="nav-item"><a href="/conexao_page" class="a">Acessar Perfil</a></li> 
+            </ul>
+            <div class="hamburguer">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <div class="main">
+        <div class="main-text">
+            <a href="/" class="logo"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo"></a>
+            <h1>As soluções que a sua empresa precisa.</h1>
+            <p class="main-description">A melhor consultoria para impulsionar sua estratégia tecnológica está aqui, na <b>Techouse Brasil.</b></p>
+            <a class="a" id="btn-schedule" href='https://api.whatsapp.com/message/D4QQGSRJWCCSN1?autoload=1&app_absent=0'>Agende uma Reunião</a>
+        </div>
+        <div class="main-people-image">
+            <img src="{{ url_for('static', filename='images/pessoa.png') }}"  alt="pessoa" class="people">
+        </div>
+    </div>
+    <div class="content">
+        <div class="people-image">
+            <img src="{{ url_for('static', filename='images/pessoa.png') }}"  alt="pessoa" class="people">
+        </div>
+        <div class="about">
+            <h1>Sobre nós</h1>
+            <p>A Techouse, fundada por Eduardo e Guilherme em Embu das Artes, tem como objetivo impulsionar o sucesso das empresas em suas iniciativas empresariais.</p>
+        </div>
+        <div class="box">
+            <h1>Está aqui a razão para <br> <span class="text-gradient">você contratar</span> a Techouse Brasil</h1>
+            <p class="box-description">Há várias razões convincentes para contratar a Techouse e aproveitar os benefícios de nossos serviços tecnológicos. Nossa empresa é especializada em fornecer soluções personalizadas e inovadoras para impulsionar o sucesso de negócios como o seu. Com uma equipe experiente e altamente qualificada, estamos prontos para enfrentar qualquer desafio tecnológico que sua empresa possa encontrar. Estamos sempre atualizados com as últimas tendências e avanços tecnológicos, garantindo que possamos oferecer as melhores soluções para suas necessidades específicas.</p>
+            <a class="a" id="btn-schedule" href="https://wa.me/message/D4QQGSRJWCCSN1"> Agende uma Reunião</a>
+        </div>
+        <div class="services">
+            <h1> <span class="text-gradient">Serviços</span></h1>
+            <p class="services-subtitle">Conheça alguns dos serviços que nós oferecemos para os nossos clientes.</p>
+            
+            <div class="service-card">
+              <h2>Contrato de <br>Manutenção de T.I</h2>
+              <p>Cobertura completa para equipamentos, suporte de rede e manutenção remota com acompanhamento técnico exclusivo.</p>
+            </div>
+            
+            <div class="service-card">
+              <h2>Consultoria de B.I</h2>
+              <p>Maximizamos o potencial dos seus dados, fornecendo insights estratégicos e soluções personalizadas de Business Intelligence.</p>
+            </div>
+            
+            <div class="service-card">
+              <h2>Plataforma CRUD</h2>
+              <p>Simplifique e otimize seus processos com nossa plataforma intuitiva de criação, leitura, atualização e exclusão de dados, garantindo eficiência e produtividade a sua gestão de dados.</p>
+            </div>
+          </div>
+        <div class="contact">
+            <h3 class="contact-title">Envie uma mensagem</h3>
+            <form action="contact_send.php" method="POST">
+                <div class="form-content">
+                    <input type="text" id="nome" name="nome" required placeholder="Nome">
+                    <input type="email" id="email" name="email" required placeholder="E-mail">
+                    <textarea id="message" name="message" required placeholder="Digite sua mensagem..."></textarea>
+                    <button  id="btn-send-message">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Style(css) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); 
+
+:root {
+    --background-color: white;
+    --foreground-color-1: #6c00ff;
+    --foreground-color-2: #c400ff;
+    --text-color-1: white;
+    --text-color-2: black;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--background-color);
+}
+
+h1, h2, h3, p {
+    color: var(--text-color-2);
+}
+
+
+/* Header */
+header{
+    background-color: #fff;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centralizar horizontalmente */
+  min-height: 70px;
+  padding: 0 34px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra abaixo do navbar */
+}
+
+
+
+.nav-menu {
+    display: flex;
+  align-items: center;
+  justify-content: center; /* Centralizar horizontalmente */
+  gap: 30px;
+}
+
+.nav-menu li {
+  display: inline-block;
+  margin-right: 60px;
+}
+
+.nav-menu li:last-child {
+  margin-right: 0;
+}
+
+.nav-menu .a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);  /* Estilo dos links */
+}
+
+.nav-menu li a:hover {
+  text-decoration: none;  /* Estilo dos links ao passar o mouse */
+}
+
+.nav-link {
+    transition: 0.5s ease;
+}
+
+.nav-link:hover {
+    color: #ccc;
+}
+
+.hamburguer {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 2px;
+    margin: 5px auto;
+    background-color:var(--foreground-color-1);
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Responsividade Nav Bar */
+
+@media (max-width:768px) {
+    .hamburguer{
+        display: block;
+        margin-right: auto;
+    }
+    .hamburguer.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburguer.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburguer.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        border-radius: 0 0 20px 20px;
+        background-color: #fff;
+        text-align: center;
+        flex-direction: column;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra abaixo do navbar */
+        transition: 0.3s;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    gap: 50px;
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 100px;
+    padding: 20px;
+}
+
+.main-text {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.main-people-image {
+    width: 100%;
+    max-width: 400px;
+    min-width: 300px;
+}
+
+.people {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.about {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.main-description {
+    margin: 20px 0;
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+}
+
+.people-image {
+    display: none;
+}
+button {
+    width: 100%;
+    padding: 10px 25px;
+    background-color: var(--foreground-color-1);
+    border-radius: 20px;
+    color: var(--text-color-1);
+    font-size: 1rem;
+    transition: all 300ms;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    background: var(--foreground-color-1);
+}
+
+button:active {
+    transform: scale(1.1);
+}
+
+.a {
+    width: 100%;
+    padding: 10px 25px;
+    background-color: var(--foreground-color-1);
+    border-radius: 20px;
+    color: var(--text-color-1);
+    font-size: 1rem;
+    transition: all 300ms;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.a:hover {
+    background: var(--foreground-color-1);
+}
+
+.a:active {
+    transform: scale(1.1);
+}
+
+.box {
+    width: 100%;
+    max-width: 1000px;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 10%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.text-gradient {
+    background-color: var(--foreground-color-1);
+    background-image: linear-gradient(45deg, var(--foreground-color-1), var(--foreground-color-2));
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.contact {
+    width: 100%;
+    max-width: 600px;
+}
+
+.contact-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    border: 1px solid var(--foreground-color-1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+textarea {
+    resize: vertical;
+    overflow-y: auto;
+    width: 100%;
+    min-height: 150px;
+    max-height: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    border: solid 1px var(--foreground-color-1);
+}
+
+input {
+    width: 100%;
+    min-height: 50px;
+    padding: 10px;
+    border-bottom: solid 1px var(--foreground-color-1);
+}
+
+@media (max-width: 700px) {
+    .main-people-image {
+        display: none;
+    }
+
+    .people-image {
+        display: block;
+    }
+
+    .box {
+        padding: 50px 20px;
+    }
+}
+
+
+
+    /* Serviços */
+    .services {
+  text-align: center;
+}
+
+.services h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.services p.services-subtitle {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.service-card {
+  display: inline-block;
+  width: 300px;
+  height: 250px; /* Defina a altura desejada para os cards */
+  padding: 20px;
+  margin: 0 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden; /* Oculta o conteúdo que exceder a altura do card */
+  box-sizing: border-box; /* Inclui padding e borda no cálculo do tamanho total */
+}
+
+.service-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  overflow: hidden; /* Oculta o texto que exceder a altura do card */
+  text-overflow: ellipsis; /* Adiciona reticências (...) para indicar o texto cortado */
+  white-space: nowrap; /* Impede que o texto seja quebrado em várias linhas */
+}
+
+.service-card p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  overflow: hidden; /* Oculta o texto que exceder a altura do card */
+}
+
+.service-card .btn-learn-more {
+  background-color: #6c00ff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+.service-card .btn-learn-more:hover {
+    background: var(--foreground-color-1);
+}
+
+@media (max-width: 768px) {
+  .service-card {
+    margin: 5px 5px;
+  }
+}
+
+
+    </style>
+
+    <!-- Script (js) -->
+    <script>
+        // template_3l7alnm - Template ID
+        // service ID - service_g8imzhw
+        const btnsSchedules = document.querySelectorAll("#btn-schedule");
+
+btnsSchedules.forEach(btn => {
+    btn.addEventListener('click', () => {
+        window.location.href = "https://example.com/"; // redirect URL
+    })
+})
+    </script>
+    <script>
+        const hamburguer = document.querySelector(".hamburguer");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburguer.addEventListener("click", () => {
+            hamburguer.classList.toggle('active')
+            navMenu.classList.toggle('active')
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/logo.png') }}"> -->
+    <title>Techouse Brasil</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/outro_index" class="nav-link">Serviços</a></li>
+                <li class="nav-item"><a href="/about_nos" class="nav-link">Sobre Nós</a></li>
+                <!-- <li class="nav-item"><a href="/contato_form" class="nav-link">Contato</a></li> -->
+                <li class="nav-item"><a href="/login_index" class="a">Acessar Perfil</a></li> 
+            </ul>
+            <div class="hamburguer">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+
+        <div class="main">
+            <h1>Conheça nossos <span class="text-gradient">serviços</span>.</h1>
+            <p class="main-description">Conheça os serviços que nós entregamos para nossos clientes.</p>
+        </div>
+    </header>
+    <div class="content">
+        <div class="box">
+            <h1><span class="text-gradient">Manutenção de T.I</span></h1>
+            <p class="box-description">Na Techouse Brasil, oferecemos serviços abrangentes de Manutenção de T.I (<b>Tecnologia da Informação</b>) para garantir o pleno funcionamento dos seus equipamentos e sistemas. Nossa equipe altamente qualificada está pronta para lidar com todos os aspectos da manutenção de T.I, incluindo suporte técnico, solução de problemas, atualizações de software e hardware, monitoramento de rede e muito mais.
+                <br><br>
+                Com nosso <b>contrato de manutenção</b> personalizado, cuidamos de todos os seus equipamentos de informática, garantindo que estejam sempre em perfeito estado de funcionamento. Além disso, oferecemos suporte remoto exclusivo, permitindo que nossa equipe resolva rapidamente qualquer problema técnico sem a necessidade de deslocamento físico.</p>
+            <a class="a" id="btn-schedule" href="https://wa.me/message/D4QQGSRJWCCSN1"> Agende uma Reunião</a>
+        </div>
+        <div class="box">
+            <h1><span class="text-gradient">Consultoria de B.I</span></h1>
+            <p class="box-description">Na Techouse Brasil, oferecemos serviços especializados de Consultoria de B.I (<b>Business Intelligence</b>) para ajudar sua empresa a extrair o máximo valor dos seus dados. Nossa equipe experiente realiza análises abrangentes dos seus dados, identificando insights estratégicos e fornecendo soluções personalizadas de B.I.
+                <br><br>
+                Com nossa <b>consultoria de B.I</b>, ajudamos você a visualizar e interpretar seus dados de forma eficiente. Desenvolvemos painéis de controle interativos e relatórios automatizados que fornecem uma visão clara e detalhada do desempenho do seu negócio. Além disso, orientamos você na tomada de decisões informadas, baseadas em dados, e no planejamento estratégico, para impulsionar o crescimento e a eficiência da sua empresa.</p>
+            <a class="a" id="btn-schedule" href="https://wa.me/message/D4QQGSRJWCCSN1"> Agende uma Reunião</a>
+        </div>
+        <div class="box">
+            <h1><span class="text-gradient">Plataforma CRUD</span></h1>
+            <p class="box-description">A Techouse Brasil oferece uma <b>Plataforma CRUD</b> personalizada para simplificar e otimizar os processos do seu negócio. Com nossa plataforma intuitiva, você pode facilmente <b>criar, ler, atualizar e excluir dados</b> de forma eficiente.
+
+                Nossa equipe trabalha em estreita colaboração com você para <b>entender suas necessidades específicas</b> e personalizar a plataforma de acordo com os requisitos do seu negócio. Além disso, <b>integramos a plataforma com seus sistemas existentes</b> para garantir a sincronização perfeita de dados.</p>
+            <a class="a" id="btn-schedule" href="https://wa.me/message/D4QQGSRJWCCSN1"> Agende uma Reunião</a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Style -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); 
+
+:root {
+    --background-color: white;
+    --foreground-color-1: #6c00ff;
+    --foreground-color-2: #c400ff;
+    --text-color-1: white;
+    --text-color-2: black;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--background-color);
+}
+
+h1, h2, h3, p {
+    color: var(--text-color-2);
+}
+
+
+/* Header */
+header{
+    background-color: #fff;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centralizar horizontalmente */
+  min-height: 70px;
+  padding: 0 34px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra abaixo do navbar */
+}
+
+
+.nav-menu {
+    display: flex;
+  align-items: center;
+  justify-content: center; /* Centralizar horizontalmente */
+  gap: 30px;
+}
+
+.nav-menu li {
+  display: inline-block;
+  margin-right: 60px;
+}
+
+.nav-menu li:last-child {
+  margin-right: 0;
+}
+
+.nav-menu .a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);  /* Estilo dos links */
+}
+
+.nav-menu li a:hover {
+  text-decoration: none;  /* Estilo dos links ao passar o mouse */
+}
+
+.nav-link {
+    transition: 0.5s ease;
+}
+
+.nav-link:hover {
+    color: #ccc;
+}
+
+.hamburguer {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 2px;
+    margin: 5px auto;
+    background-color:var(--foreground-color-1);
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Responsividade Nav Bar */
+
+@media (max-width:768px) {
+    .hamburguer{
+        display: block;
+        margin-right: auto;
+    }
+    .hamburguer.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburguer.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburguer.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        border-radius: 0 0 20px 20px;
+        background-color: #fff;
+        text-align: center;
+        flex-direction: column;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra abaixo do navbar */
+        transition: 0.3s;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+}
+
+button {
+    width: 100%;
+    padding: 10px 25px;
+    background-color: var(--foreground-color-1);
+    border-radius: 20px;
+    color: var(--text-color-1);
+    font-size: 1rem;
+    transition: all 300ms;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    background: var(--foreground-color-1);
+}
+
+button:active {
+    transform: scale(1.1);
+}
+
+.a {
+    width: 100%;
+    padding: 10px 25px;
+    background-color: var(--foreground-color-1);
+    border-radius: 20px;
+    color: var(--text-color-1);
+    font-size: 1rem;
+    transition: all 300ms;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.a:hover {
+    background: var(--foreground-color-1);
+}
+
+.a:active {
+    transform: scale(1.1);
+}
+
+
+
+
+/* Main */
+.main {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.main h1 {
+  margin-bottom: 10px;
+}
+
+.main p {
+  margin-top: 10px;
+}
+
+
+
+/* Content */
+.content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 100px;
+    padding: 20px;
+}
+
+.box {
+    width: 100%;
+    max-width: 1000px;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 10%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.box h1 {
+  text-align: center;
+}
+
+.text-gradient {
+    background-color: var(--foreground-color-1);
+    background-image: linear-gradient(45deg, var(--foreground-color-1), var(--foreground-color-2));
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Java Script -->
+<script>
+    const hamburguer = document.querySelector(".hamburguer");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburguer.addEventListener("click", () => {
+    hamburguer.classList.toggle('active')
+    navMenu.classList.toggle('active')
+    })
+</script>
+</body>
+</html>
